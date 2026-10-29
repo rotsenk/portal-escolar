@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* ─── Tokens del sistema de diseño institucional ─── */
+:root {
+  --color-navy:         #0F172A;
+  --color-cobalt:       #1D4ED8;
+  --color-cobalt-hover: #1E40AF;
+  --color-forest:       #15803D;
+  --color-ochre:        #C2410C;
+  --color-app-bg:       #F1F5F9;
+  --color-surface:      #FFFFFF;
+  --color-border:       #CBD5E1;
+  --font-base:          system-ui, Roboto, sans-serif;
+  --btn-min-height:     48px;
+  --radius-btn:         8px;
+}
+
+body {
+  background-color: var(--color-app-bg);
+  color: var(--color-navy);
+  font-family: var(--font-base);
+  -webkit-font-smoothing: antialiased;
+  /* Evitar scroll horizontal en móvil */
+  overflow-x: hidden;
+}
+
+/* ─── Botones táctiles: garantizar área mínima e interactividad ─── */
+button,
+a[href] {
+  /* Sin pointer-events bloqueantes */
+  pointer-events: auto;
+  /* Evitar selección de texto accidental al tocar rápido */
+  -webkit-tap-highlight-color: transparent;
+  /* Área táctil explícita */
+  touch-action: manipulation;
+}
+
+/* ─── Clase utilitaria para botones de acción táctil ─── */
+.btn-touch {
+  min-height: var(--btn-min-height);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Canvas de firma táctil ─── */
+.signature-canvas {
+  touch-action: none;
+  cursor: crosshair;
+  pointer-events: auto;
+  display: block;
+}
